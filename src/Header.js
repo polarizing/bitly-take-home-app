@@ -5,11 +5,11 @@ class Header extends Component{
    render() {
       return <header id="header">
         <div id="header-inner">
-          <div class="container">
-            <h1 class="header-logo">
+          <div className="container">
+            <h1 className="header-logo">
             	bitly
             </h1>
-            <div class="navigation" role="navigation">
+            <div className="navigation" role="navigation">
               <ul>
                 <li>
                   <a href="/">Tour</a>
