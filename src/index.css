@@ -1,5 +1,58 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Brandon Grotesque', sans-serif;
+}
+
+@font-face {
+	font-family: 'Galaxie Cassiopeia';
+    src: url("./fonts/galaxie_cassiopeia.otf") format("opentype");
+}
+
+@font-face {
+	font-family: 'Brandon Grotesque';
+    src: url("./fonts/brandon_reg.woff") format("woff"), /* Modern Browsers */
+         url("./fonts/brandon_reg.ttf")  format("truetype"); /* Safari, Android, iOS */
+    font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Brandon Grotesque';
+    src: url("./fonts/brandon_bld.woff") format("woff"), /* Modern Browsers */
+         url("./fonts/brandon_bld.ttf")  format("truetype"); /* Safari, Android, iOS */
+    font-weight: 800;
+}
+
+@font-face {
+	font-family: 'Brandon Grotesque';
+    src: url("./fonts/brandon_med.woff") format("woff"), /* Modern Browsers */
+         url("./fonts/brandon_med.ttf")  format("truetype"); /* Safari, Android, iOS */
+    font-weight: 600;
+}
+
+@font-face {
+	font-family: 'Proxima Nova';
+    src: url("./fonts/proxima_nova_reg.woff") format("woff"), /* Modern Browsers */
+         url("./fonts/proxima_nova_reg.ttf")  format("truetype"); /* Safari, Android, iOS */
+    font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Proxima Nova';
+    src: url("./fonts/proxima_nova_black.woff") format("woff"), /* Modern Browsers */
+         url("./fonts/proxima_nova_black.ttf")  format("truetype"); /* Safari, Android, iOS */
+    font-weight: 300;
+}
+
+.container {
+	max-width: 920px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+::selection {
+	background-color: #ee6123;
+	color: white;
 }

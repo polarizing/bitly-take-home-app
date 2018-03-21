@@ -1,0 +1,46 @@
+#header {
+	width: 100%;
+	font-family: 'Brandon Grotesque',"Helvetica Neue",Helvetica,Arial,sans-serif;
+  	font-weight: 800;
+  	background: url('./images/background-image.png') top center no-repeat;
+  	background-size: cover;
+  	padding-bottom: 457px;
+  	margin-bottom: -457px;
+  	padding-top: 10px;
+}
+
+#header .container {
+
+}
+.header-logo {
+	float: left;
+	font-family: 'Galaxie Cassiopeia';
+	color: white;
+	margin-right: 50px;
+}
+
+.navigation ul li a {
+	display: block;
+	text-decoration: none;
+}
+
+#header-inner li a {
+	color: #fff;
+	text-transform: uppercase;
+}
+
+.navigation ul li {
+	float: left;
+	margin: 0 30px 0 0;
+	line-height: 45px;
+	font-size: 13px;
+}
+
+.navigation ul {
+	list-style-type: none;
+}
+
+.navigation {
+	position: relative;
+	top: 8px;
+}
