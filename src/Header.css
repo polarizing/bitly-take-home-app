@@ -44,3 +44,21 @@
 	position: relative;
 	top: 8px;
 }
+
+@media all and (max-width: 768px) { 
+.header-logo {
+		margin-left: 35px;
+	}
+} 
+
+@media all and (max-width: 575px) {
+
+	.header-logo {
+		margin-left: 35px;
+	}
+
+  /*#header {
+  	padding-bottom: 200px;
+  	margin-bottom: -340px;
+  }*/
+}

@@ -123,3 +123,34 @@ input#shorten_url:focus {
   font-family: 'Proxima Nova';
   font-weight: 400;
 }
+
+
+/*@media all and (max-width: 1199px) { ... } 
+@media all and (max-width: 991px) { ... } */
+@media all and (max-width: 768px) { 
+  .page-title {
+    font-size: 38px;
+  }
+} 
+
+@media all and (max-width: 575px) {
+  .navigation {
+    float: right;
+  }
+  .navigation ul li {
+    float: none;
+    line-height: 20px;
+  }
+  .page-title {
+    font-size: 28px;
+  }
+  .join-bitly {
+    font-size: 16px;
+  }
+  #shorten_btn {
+    width: 30%;
+  }
+  .urlInputContainer {
+    width: 70%;
+  }
+}
