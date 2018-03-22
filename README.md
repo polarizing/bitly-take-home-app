@@ -2,6 +2,8 @@
 
 ### Get Started
 
+![Imgur](https://i.imgur.com/iLcl8tU.gif)
+
 Inside the project directory, there is a .env file that has two lines where you will put your private login and API key for Bitly, for security reasons. It looks like this: 
 ```bash
 REACT_APP_API_LOGIN=[YOUR API LOGIN HERE]
