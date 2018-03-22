@@ -17,32 +17,12 @@ body {
 }
 
 @font-face {
-	font-family: 'Brandon Grotesque';
-    src: url("./fonts/brandon_bld.woff") format("woff"), /* Modern Browsers */
-         url("./fonts/brandon_bld.ttf")  format("truetype"); /* Safari, Android, iOS */
-    font-weight: 800;
-}
-
-@font-face {
-	font-family: 'Brandon Grotesque';
-    src: url("./fonts/brandon_med.woff") format("woff"), /* Modern Browsers */
-         url("./fonts/brandon_med.ttf")  format("truetype"); /* Safari, Android, iOS */
-    font-weight: 600;
-}
-
-@font-face {
 	font-family: 'Proxima Nova';
     src: url("./fonts/proxima_nova_reg.woff") format("woff"), /* Modern Browsers */
          url("./fonts/proxima_nova_reg.ttf")  format("truetype"); /* Safari, Android, iOS */
     font-weight: 400;
 }
 
-@font-face {
-	font-family: 'Proxima Nova';
-    src: url("./fonts/proxima_nova_black.woff") format("woff"), /* Modern Browsers */
-         url("./fonts/proxima_nova_black.ttf")  format("truetype"); /* Safari, Android, iOS */
-    font-weight: 300;
-}
 
 .container {
 	max-width: 920px;
