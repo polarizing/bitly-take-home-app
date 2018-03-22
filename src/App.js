@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import BitlyLinks from './BitlyLinks';
+import { ToastContainer, toast } from 'react-toastify';
+import { css } from 'glamor';
 import './App.css'
 
 class App extends Component {
@@ -104,19 +106,33 @@ class App extends Component {
       self.urlElement.select();
     })
     .catch(function(error) {
+      console.log(error.message);
       switch(error.message) {
-        case "500 ALREADY_A_BITLY_LINK": console.log("Already a Bitly Link"); break;
-        case "500 INVALID_URI": console.log("INVALID_URI"); break;
-        case "500 INVALID_APIKEY": console.log("INVALID API KEY"); break;
-        case "500 MISSING_ARG_ACCESS_TOKEN": console.log("Missing Access Token"); break;
-        default: console.log("Error.");
+        case "500 ALREADY_A_BITLY_LINK": self.notify("The URL is already shortened!"); break;
+        case "500 INVALID_URI": self.notify("Please make sure your URL is valid."); break;
+        case "500 INVALID_APIKEY": self.notify("API key is invalid."); break;
+        case "500 MISSING_ARG_ACCESS_TOKEN": self.notify("Missing access token."); break;
+        default: self.notify("Uh-oh. Something is not right.");
       }
     })
+  }
+
+  notify = (message) => {
+    toast.error(message, {
+      position: toast.POSITION.TOP_CENTER,
+      className: css({
+        fontFamily: 'Brandon Grotesque',
+        textAlign: 'center',
+        fontSize: '16',
+        background: '#ee6123'
+      })
+    });
   }
 
   render() {
     return (
       <div id="container">
+        <ToastContainer autoClose={3000} />
         <Header />
         <div className="container container-pod">
           <h1 className="page-title">
