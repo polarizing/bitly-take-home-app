@@ -24,7 +24,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    sessionStorage.clear();
     const cachedLinks = JSON.parse(sessionStorage.getItem('links'));
     this.setState( {
       links: cachedLinks
