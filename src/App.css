@@ -88,7 +88,8 @@ input#shorten_url:focus {
   margin: 0 auto;
   background-color: #fff;
   border-radius: 3px;
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.05)
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.05);
+  margin-bottom: 60px;
 }
 
 
@@ -104,9 +105,6 @@ input#shorten_url:focus {
   padding: 24px 26px;
   font-family: 'Proxima Nova';
   font-weight: 400;
-}
-
-#link-container li:first-child {
 }
 
 .article-title {

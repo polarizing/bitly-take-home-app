@@ -10,10 +10,11 @@ class BitlyLinks extends Component{
   }
 
   componentWillReceiveProps(nextProps) {
-    var links = [];
-    Object.keys( nextProps.links ).map(key => links.push( nextProps.links[key] ));
-    links.sort((a, b) => a.created_at > b.created_at);
-    this.setState({ links: links });
+    if (nextProps.links) {
+      var links = nextProps.links;
+      links.sort((a, b) => a.updated_at < b.updated_at);
+      this.setState({ links: links });
+    }
   }
 
   getTitle = (link) => {
@@ -21,7 +22,6 @@ class BitlyLinks extends Component{
   }
 
   listItems = () => {
-    console.log(this.state.links);
     return  <div>
               <ul>
                 { 
@@ -50,7 +50,7 @@ class BitlyLinks extends Component{
   }
 
   render() {
-      return <div>{this.listItems()}</div>
+      return <div>{ this.listItems() }</div>
   }
 }
 
