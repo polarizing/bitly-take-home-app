@@ -20,6 +20,7 @@ You do not need to wrap your login or key in quotes. Please paste it directly af
 Once the API key is filled out, you are ready to build the application! Please make sure you have Node (npm) installed and run the following commands from the root of the project directory.
 
 ```bash
+npm install
 npm run build
 ```
 
