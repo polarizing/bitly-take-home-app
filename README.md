@@ -30,11 +30,22 @@ Once completed, you are ready to deploy the build folder. You can do this direct
 serve -s build
 ```
 
+If you do not have serve installed, you can install it with:
+
+```bash
+npm install -g serve
+```
+
 Alternatively, you can navigate to the build folder and deploy with any hosted HTTP server, for example:
 ```bash
 cd build
 python -m SimpleHTTPServer
 ```
+
+### Issues
+* If you do not have the correct API login and key, you will need to fill out the .env file with the correct information and build and deploy the app again.
+* If the application still doesn't work, please force clear the cache in your browser to make sure you are loading the latest build.
+
 
 ### Details
 
