@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Header';
+import BitlyLinks from './BitlyLinks';
 import './App.css'
 
 class App extends Component {
@@ -12,18 +13,22 @@ class App extends Component {
           apiKey: 'R_85b64fdcc7804c37a7cad8eb6b469eb9'
         }),
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
     const cachedLinks = JSON.parse(sessionStorage.getItem('links'));
+    this.setState( {
+      links: cachedLinks
+    })
     console.log(cachedLinks);
   }
 
-  handleClick = (e) => {
+  handleClick(e) {
     e.preventDefault();
     var bitly = this.state.sdk;
     var data = {}
-    bitly.shorten("http://www.google2.com/").then(function(result) {
+    bitly.shorten("http://www.google.com/").then(function(result) {
       data.url = result.url;
       data.long_url = result.long_url;
       data.hash = result.hash;
@@ -62,41 +67,10 @@ class App extends Component {
               </fieldset>
             </form>
           </div>
+
           <div id="link-container">
-            <div>
-              <ul>
-                <li>
-                  <div className="title">
-                    <a className="article-title" href="http://google.com">google.com/</a>
-                  </div>
-                  <div className="title-url">
-                    <a className="article-subtitle" href="http://google.com/">google.com/</a>
-                  </div>
-                  <div className="capsule">
-                    <a className="short-url">http://bit.ly/2px4Ok3</a>  
-                    <a className="info_page" href="">
-                      0
-                    </a>                  
-                  </div>
-
-                </li>
-                <li>
-                  <div className="title">
-                    <a className="article-title" href="http://google.com">google.com/</a>
-                  </div>
-                  <div className="title-url">
-                    <a className="article-subtitle" href="http://google.com/">google.com/</a>
-                  </div>
-                  <div className="capsule last">
-                    <a className="short-url">http://bit.ly/2px4Ok3</a>
-                    <a className="info_page" href="">
-                      18,659,223
-                    </a>
-                  </div>
-
-                </li>
-              </ul>
-            </div>
+            <BitlyLinks links={ this.state.links } />
+            
           </div>
         </div>
       </div>
