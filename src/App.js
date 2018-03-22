@@ -41,6 +41,7 @@ class App extends Component {
   copyInputFieldToClipboard() {
       this.urlElement.select();
       document.execCommand('copy');
+      this.notify("Copied to your clipboard!");
   }
 
   handleChange(event) {
@@ -154,7 +155,7 @@ class App extends Component {
           </div>
 
           <div id="link-container">
-            <BitlyLinks links={ this.state.links } />
+            <BitlyLinks toastNotify={ this.notify } links={ this.state.links } />
           </div>
         </div>
       </div>

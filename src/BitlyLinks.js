@@ -21,6 +21,16 @@ class BitlyLinks extends Component{
     return (!link.title ? link.long_url : link.title)
   }
 
+  handleClickedShortLink = (e) => {
+    var input = document.createElement('input');
+    document.body.appendChild(input);
+    input.value = e.target.text;
+    input.select();
+    document.execCommand('copy');
+    document.body.removeChild(input);
+    this.props.toastNotify("Copied to your clipboard!");
+  }
+
   listItems = () => {
     return  <div>
               <ul>
@@ -28,7 +38,7 @@ class BitlyLinks extends Component{
                   this.state.links.map( link => {
                     return  <li key={link.url}>
                               <div className="title">
-                                <a className="article-title" href="{}">
+                                <a className="article-title" href={link.long_url}>
                                   {this.getTitle(link)}
                                 </a>
                               </div>
@@ -36,10 +46,10 @@ class BitlyLinks extends Component{
                                 <a className="article-subtitle" href={link.long_url}>{link.long_url}</a>
                               </div>
                               <div className="capsule">
-                                <a className="short-url">{link.url}</a>  
+                                <a onClick={this.handleClickedShortLink} className="short-url">{link.url}</a>  
                                 <a className="info_page" href="">
                                   {Number(link.global_clicks).toLocaleString()}
-                                </a>                  
+                                </a>       
                               </div>
                             </li>
                   }) 
