@@ -26,7 +26,6 @@ class BitlyLinks extends Component{
               <ul>
                 { 
                   this.state.links.map( link => {
-                    console.log(link);
                     return  <li key={link.url}>
                               <div className="title">
                                 <a className="article-title" href="{}">

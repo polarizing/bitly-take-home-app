@@ -14,9 +14,11 @@ class App extends Component {
           login: 'polarizing',
           apiKey: 'R_85b64fdcc7804c37a7cad8eb6b469eb9'
         }),
-      url_to_shorten: ''
+      url_to_shorten: '',
+      submitText: 'Shorten'
     };
-    this.handleClick = this.handleClick.bind(this);
+    this.clearInputField = this.clearInputField.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleOnKeyPress = this.handleOnKeyPress.bind(this);
   }
@@ -29,10 +31,19 @@ class App extends Component {
     })
   }
 
+  clearInputField(e) {
+    e.preventDefault();
+    this.setState({url_to_shorten: "", submitText: 'Shorten'});
+  }
+
+  copyInputFieldToClipboard() {
+      this.urlElement.select();
+      document.execCommand('copy');
+  }
+
   handleChange(event) {
-    this.setState({url_to_shorten: event.target.value}, function() {
-      console.log(this.state);
-    });
+    if (this.state.submitText === 'Copy') this.setState({submitText: 'Shorten'});
+    this.setState({url_to_shorten: event.target.value});
   }
 
   handleOnKeyPress(event) {
@@ -41,9 +52,15 @@ class App extends Component {
     }
   }
 
-  handleClick(e) {
+  handleSubmit(e) {
     e.preventDefault();
     var self = this;
+
+    if (this.state.submitText === 'Copy') {
+      this.copyInputFieldToClipboard();
+      return;
+    }
+
     var bitly = this.state.sdk;
     var data = {}
     var link = this.state.url_to_shorten;
@@ -83,10 +100,12 @@ class App extends Component {
       else links.push(data);
       links.sort((a, b) => a.updated_at < b.updated_at);
       sessionStorage.setItem("links", JSON.stringify(links));
-      self.setState({ links: links })
+      self.setState({ links: links, url_to_shorten: data.url, submitText: 'Copy'})
+      self.urlElement.select();
     })
     .catch(function(error) {
       switch(error.message) {
+        case "500 ALREADY_A_BITLY_LINK": console.log("Already a Bitly Link"); break;
         case "500 INVALID_URI": console.log("INVALID_URI"); break;
         case "500 INVALID_APIKEY": console.log("INVALID API KEY"); break;
         case "500 MISSING_ARG_ACCESS_TOKEN": console.log("Missing Access Token"); break;
@@ -109,8 +128,11 @@ class App extends Component {
           <div id="form-container">
             <form method="POST" action="/" name="shortenUrl">
               <fieldset className="cf">
-                <input onKeyPress={this.handleOnKeyPress} onChange={this.handleChange} value={this.state.url_to_shorten} spellCheck="false" autoFocus placeholder="Paste a link to shorten it" id="shorten_url"></input>
-                <input ref={elem => this.submitElement = elem} id="shorten_btn" value="Shorten" readOnly onClick={this.handleClick} ></input>
+                <div className="urlInputContainer">
+                  <a onClick={this.clearInputField} style={{ display: this.state.submitText === 'Copy' ? 'block' : 'none' }} href="#" id="clear_active_shorten" title="Clear shorten box">X</a>
+                  <input ref={elem => this.urlElement = elem} onKeyPress={this.handleOnKeyPress} onChange={this.handleChange} value={this.state.url_to_shorten} spellCheck="false" autoFocus placeholder="Paste a link to shorten it" id="shorten_url"></input>
+                </div>
+                <input ref={elem => this.submitElement = elem} id="shorten_btn" value={this.state.submitText} readOnly onClick={this.handleSubmit} ></input>
               </fieldset>
             </form>
           </div>
