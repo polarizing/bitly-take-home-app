@@ -1,4 +1,7 @@
 ## Bit.ly Take-Home App
+
+This is my implementation of Bitly's frontend engineering internship take home test. 
+
 ### Demo
 ![Imgur](https://i.imgur.com/OSoouMG.gif)
 
