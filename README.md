@@ -1,6 +1,6 @@
 ## Bit.ly Take-Home App
 
-### Get Started (cmd.exe or Bash)
+### Get Started
 
 Inside the project directory, there is a .env file that has two lines where you will put your private login and API key for Bitly. It looks like this: 
 ```bash
