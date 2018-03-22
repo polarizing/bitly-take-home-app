@@ -11,10 +11,8 @@ class App extends Component {
     super(props);
     this.state = {
       sdk: new window.BitlySDK({
-          // login: process.env.REACT_APP_API_LOGIN,
-          // apiKey: process.env.REACT_APP_API_KEY
-          login: 'polarizing',
-          apiKey: 'R_85b64fdcc7804c37a7cad8eb6b469eb9'
+          login: process.env.REACT_APP_API_LOGIN,
+          apiKey: process.env.REACT_APP_API_KEY
         }),
       url_to_shorten: '',
       submitText: 'Shorten'
