@@ -1,4 +1,5 @@
 ## Bit.ly Take-Home App
+![Imgur](https://i.imgur.com/OSoouMG.gif)
 
 ### Get Started
 
