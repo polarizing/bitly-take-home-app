@@ -2,7 +2,7 @@
 
 ### Get Started
 
-Inside the project directory, there is a .env file that has two lines where you will put your private login and API key for Bitly. It looks like this: 
+Inside the project directory, there is a .env file that has two lines where you will put your private login and API key for Bitly, for security reasons. It looks like this: 
 ```bash
 REACT_APP_API_LOGIN=[YOUR API LOGIN HERE]
 REACT_APP_API_KEY=[YOUR API KEY HERE]
@@ -27,3 +27,6 @@ Alternatively, you can navigate to the build folder and deploy with any hosted H
 cd build
 python -m SimpleHTTPServer
 ```
+
+### Implementation Notes
+
