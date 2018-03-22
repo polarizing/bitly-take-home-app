@@ -28,6 +28,8 @@ cd build
 python -m SimpleHTTPServer
 ```
 
+### Details
+
 This SPA was implemented with the React library.
 
 #### Design Choices
